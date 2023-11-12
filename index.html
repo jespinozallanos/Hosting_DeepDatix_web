@@ -551,17 +551,17 @@
 		var name = 	document.getElementById("Name").value;
 		var mail = 	document.getElementById("Email").value;
 		var body = 	document.getElementById("Message").value;
-		console.log('Enviar Mail: ' + name + ' ' + mail + ' ' + body);
+		// console.log('Enviar Mail: ' + name + ' ' + mail + ' ' + body);
 
 
 		Email.send({
 			Host: "smtp.elasticemail.com",
 			Username: "jespinozallanos@gmail.com",
 			Password: "061221B732EEF415FB809EAF2A3B597CA2BA",
-			To: mail,
+			To: 'desplieguespython@gmail.com',
 			From: "jespinozallanos@gmail.com",
-			Subject: "Hola " + name,
-			Body: body
+			Subject: "Solicitud de contacto " + name,
+			Body: mail + ' - ' + body
 		}).then(
 			message => alert(message)
 		);
