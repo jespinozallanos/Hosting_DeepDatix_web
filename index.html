@@ -19,6 +19,7 @@
 	<!-- Google Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400,700' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body data-spy="scroll" data-target="#navbar-scroll">
@@ -38,7 +39,7 @@
 								<tr>
 									<td style="width:30vw; padding-top:12vh; padding-right: 10vw;" colspan="2">
 										<img src="images/logo_final.png" alt="image" class="img-responsive">
-										
+
 									</td>
 
 									<td>
@@ -483,7 +484,7 @@
 										required></textarea>
 								</div>
 								<div class="form-group">
-									<input type="submit" name="submit" value="Enviar"
+									<input  name="submit" value="Enviar" onclick="sendmail()"
 										class="btn btn-success wow fadeInUp" />
 								</div>
 							</form>
@@ -539,6 +540,32 @@
 	<script>
 		new WOW().init();
 	</script>
+
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+
+<script>
+	function sendmail(tomail, subjectmail, bodymail) {
+		var name = 	document.getElementById("Name").value;
+		var mail = 	document.getElementById("Email").value;
+		var body = 	document.getElementById("Message").value;
+		console.log('Enviar Mail: ' + name + ' ' + mail + ' ' + body);
+
+
+		Email.send({
+			Host: "smtp.elasticemail.com",
+			Username: "jespinozallanos@gmail.com",
+			Password: "061221B732EEF415FB809EAF2A3B597CA2BA",
+			To: mail,
+			From: "jespinozallanos@gmail.com",
+			Subject: "Hola " + name,
+			Body: body
+		}).then(
+			message => alert(message)
+		);
+	}
+</script>
+
 </body>
 
 </html>
